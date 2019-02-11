@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'its-publicaciones',
   templateUrl: './publicaciones.component.html',
-  styleUrls: ['./publicaciones.component.scss']
+  styles: []
 })
 export class PublicacionesComponent implements OnInit {
 

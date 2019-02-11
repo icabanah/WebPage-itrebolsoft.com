@@ -1,0 +1,16 @@
+<div class="row mt-5 pt-3">
+    <div class="col col-12 w-100">
+      <h2>NUEVA PUBLICACION</h2>
+      <div class="row w-100">
+        <div class="col col-12 mw-100">
+          <input type="text" name="publicacion.publ_name" class="w-100" placeholder="Titulo de entrada" [(ngModel)]="publicacion.publ_name">
+          <input type="text" name="publicacion.publ_desc" class="w-100" placeholder="Descripcion de entrada" [(ngModel)]="publicacion.publ_desc">
+        </div>
+      </div>
+      <div class="row w-100">
+        <div class="col col-12 mw-100">
+          <angular-editor [(ngModel)]="publicacion.publ_body" [config]="config"></angular-editor>
+        </div>
+      </div>
+    </div>
+  </div>
