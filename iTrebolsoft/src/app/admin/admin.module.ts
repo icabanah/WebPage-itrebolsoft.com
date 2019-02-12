@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// import { NgxEditorModule } from 'ngx-editor';
-
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -18,7 +16,6 @@ import { PublicacionesModule } from './publicaciones/publicaciones.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    // NgxEditorModule,
     PublicacionesModule
   ]
 })

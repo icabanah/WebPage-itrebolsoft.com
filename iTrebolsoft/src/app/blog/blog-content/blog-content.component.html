@@ -10,333 +10,43 @@
 
   <!-- ENTRADA BLOG -->
   <div class="row ml-2">
+    <!-- <div class="row ml-2"> -->
 
-    <!-- PRIMERO -->
-    <div class="col col-4 pb-5">
+    <div class="col col-4 pb-5" *ngFor="let publ of Publicaciones; let i = index;">
 
       <div class="row">
         <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
+          <img class="img-responsive mw-100" src="{{Imagenes[i]}}" alt="" *ngIf="Imagenes.length !== 0">
         </div>
       </div>
       <div class="row">
         <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
+          <ul class="blog-meta mx-auto">
+            <!-- <li class="d-inline-block mr-4" *ngIf="Autores.length !== 0"><i class="fa fa-user"></i>{{Autores[i]}}</li> -->
+            <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>{{publ.publDate|date:'short'}}</li>
+            <li class="d-inline-block mr-4"><i class="fa fa-comments"></i></li>
+          </ul>
         </div>
       </div>
       <div class="row">
         <div class="col col-12">
-          <h3><a (click)=IrAEntrada(idArticulo)>Primera super entrada en mi blog, desde hoy y siempre</a></h3>
+          <h3><a (click)=IrAEntrada(idArticulo)>{{publ.publName}}</a></h3>
         </div>
       </div>
       <div class="row">
         <div class="col col-12">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
+            {{publ.publBody}}
           </p>
         </div>
       </div>
       <div class="row">
         <div class="col col-12">
-            <a href="blog-single.html">Leer mas...</a>
+          <a routerLink="">Leer mas...</a>
         </div>
       </div>
 
     </div>
-
-    <!-- SEGUNDO -->
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col col-4 pb-5">
-
-      <div class="row">
-        <div class="col col-12">
-            <img class="img-responsive mw-100" src="../../../assets/img/blog1.jpg" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <ul class="blog-meta">
-                <li class="d-inline-block mr-4"><i class="fa fa-user"></i>John doe</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>18 Oct</li>
-                <li class="d-inline-block mr-4"><i class="fa fa-comments"></i>57</li>
-              </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <h3>Primera super entrada en mi blog</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, repudiandae debitis quos exercitationem similique incidunt officia corrupti voluptate molestiae tenetur est, perspiciatis et optio aliquam eaque nemo explicabo at tempora.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-12">
-            <a href="blog-single.html">Read more</a>
-        </div>
-      </div>
-
-    </div>
-
 
   </div>
 </div>

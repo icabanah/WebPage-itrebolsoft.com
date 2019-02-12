@@ -1,0 +1,2 @@
+ng g m admin/publicaciones --prefix=its --routing
+ng g c admin/publicaciones/new-publish --spec=false --inlineStyle=true

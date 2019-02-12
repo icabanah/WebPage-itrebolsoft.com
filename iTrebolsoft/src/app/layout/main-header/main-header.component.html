@@ -16,12 +16,23 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Servicios</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Ingresar</a>
+      <li class="nav-item" *ngIf="!auth.isLogged()">
+        <a class="nav-link" routerLink="/login">Ingresar</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!auth.isLogged()">
         <a class="nav-link" href="#">Registrate</a>
       </li>
     </ul>
+    <div class="row w-50 d-flex justify-content-end" *ngIf="auth.isLogged()">
+      <div class="col col-3">
+        <a class="btn btn-block btn-outline-danger py-0" routerLink="/admin">Ir al panel</a>
+      </div>
+      <div class="col col-4 d-flex align-items-center">
+        Bienvenido: <strong> {{name}}</strong>
+      </div>
+      <div class="col col-2">
+        <a class="btn btn-block btn-outline-dark py-0" routerLink="/" (click)="auth.Salir()">Salir</a>
+      </div>
+    </div>
   </div>
 </nav>

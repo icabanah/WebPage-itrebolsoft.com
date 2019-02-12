@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActualizarDataService, Publish } from '../actualizar-data.service';
+import { ActualizarDataService, Publish, ImagePubl } from '../actualizar-data.service';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { HttpClient } from '@angular/common/http';
+import { Router, Params, ActivatedRoute } from '@angular/router';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'its-new-publish',
@@ -8,12 +11,20 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   styles: []
 })
 export class NewPublishComponent implements OnInit {
-  publicacion = {
-    publ_name: '',
-    publ_desc: '',
-    publ_body: '',
-    publ_date: new Date,
-    user_id: ''
+  publicacion:Publish = {
+    publName: '',
+    publDesc: '',
+    publBody: '',
+    publDate: new Date,
+    fkTUserUserId: JSON.parse(localStorage.getItem('UserId'))
+  }
+
+  id:string;
+
+  image:ImagePubl = {
+    imageName: '',
+    imageUrl: '',
+    fkTBlogPublId: ''
   }
 
   config: AngularEditorConfig = {
@@ -40,9 +51,25 @@ export class NewPublishComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(private _data:ActualizarDataService, private _router:Router) { }
 
   ngOnInit() {
   }
 
+  CrearPublicacion(){
+    this._data.RegistrarPublicacion(this.publicacion).subscribe((response)=>{
+      if(response){
+        console.log('new-publishComponent|CrearPublicacion|RegistrarPublicacion|response');
+        console.log(response);
+        this.image.fkTBlogPublId = response;
+        console.log('new-publishComponent|CrearPublicacion|image');
+        console.log(this.image);
+        this._data.RegistrarImagen(this.image).subscribe((response)=>{
+          console.log('new-publishComponent|CrearPublicacion|RegistrarImagen|response');
+          console.log(response);
+          this._router.navigateByUrl("/admin");
+        })
+      }
+    });
+  }
 }

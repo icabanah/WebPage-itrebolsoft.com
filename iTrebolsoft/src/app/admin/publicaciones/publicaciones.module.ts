@@ -10,17 +10,18 @@ import { NewPublishComponent } from './new-publish/new-publish.component';
 import { FormsModule } from '@angular/forms';
 
 // servicios
-// import { ActualizarDataService } from './actualizar-data.service';
+import { ActualizarDataService } from './actualizar-data.service';
+import { EditPublishComponent } from './edit-publish/edit-publish.component';
 
 @NgModule({
-  declarations: [PublicacionesComponent, NewPublishComponent],
+  declarations: [PublicacionesComponent, NewPublishComponent, EditPublishComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
     AngularEditorModule,
     PublicacionesRoutingModule
-  ]
-  // providers:[ActualizarDataService]
+  ],
+  providers:[ActualizarDataService]
 })
 export class PublicacionesModule { }
