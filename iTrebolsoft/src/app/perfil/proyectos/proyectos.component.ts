@@ -20,7 +20,7 @@ export class ProyectosComponent implements OnInit {
       this.Proyectos = proyectos;
       // this.Proyectos.forEach((proyecto, index)=>{
       //   this._image.
-      });
+      // });
     });
   }
 
