@@ -1,0 +1,27 @@
+<div class="row mt-5 py-3">
+  <div class="col col-12">
+
+    <div class="input-group w-100">
+      <label class="w-25" for="proyecto.proyTitle">Titulo de proyecto</label>
+      <input class="w-75" type="text" name="proyecto.proyTitle" [(ngModel)]="proyecto.proyTitle">
+    </div>
+    <div class="input-group w-100">
+      <label class="w-25" for="proyecto.proyDesc">Descripción de proyecto</label>
+      <input class="w-75" type="text" name="proyecto.proyDesc" [(ngModel)]="proyecto.proyDesc">
+    </div>
+    <hr>
+    <div class="input-group w-100">
+      <label class="w-25" for="imagen.imageName">Nombre de imagen</label>
+      <input class="w-75" type="text" name="imagen.imageName" [(ngModel)]="imagen.imageName">
+    </div>
+    <div class="input-group w-100">
+      <label class="w-25" for="imagen.imageUrl">Url de Imagen</label>
+      <input class="w-75" type="text" name="imagen.imageUrl" [(ngModel)]="imagen.imageUrl">
+    </div>
+    <hr>
+    <div class="input-group w-100">
+      <a class="btn btn-block btn-outline-dark py-0" (click)="RegistrarProyecto()">Registrar</a>
+    </div>
+    
+  </div>
+</div>

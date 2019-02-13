@@ -10,15 +10,15 @@ const routes: Routes = [
     component:BlogComponent,
     children:[
       {
+        path:'', redirectTo: '/blog', pathMatch: 'full'
+      },
+      {
         path:'blog',
         component: BlogMainComponent
       },
       {
         path:'blog/:id',
         component:BlogEntryComponent
-      },
-      {
-        path:'', redirectTo: '/blog', pathMatch: 'full'
       }
     ]
   }

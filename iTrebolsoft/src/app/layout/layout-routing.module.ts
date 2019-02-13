@@ -5,12 +5,20 @@ import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: LayoutComponent,
     children: [
       {
-        path:'',
+        path: '',
         loadChildren: '../blog/blog.module#BlogModule'
+      },
+      {
+        path: 'portafolio',
+        loadChildren: '../portafolio/portafolio.module#PortafolioModule'
+      },
+      {
+        path: 'perfil',
+        loadChildren: '../perfil/perfil.module#PerfilModule'
       }
     ]
   }

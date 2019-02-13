@@ -11,7 +11,7 @@
         <a class="nav-link" href="#">About us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Portafolio</a>
+        <a class="nav-link" routerLink="/portafolio">Portafolio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Servicios</a>
@@ -27,8 +27,13 @@
       <div class="col col-3">
         <a class="btn btn-block btn-outline-danger py-0" routerLink="/admin">Ir al panel</a>
       </div>
-      <div class="col col-4 d-flex align-items-center">
-        Bienvenido: <strong> {{name}}</strong>
+      <div class="col col-4 d-flex align-items-center border">
+        <div class="col-6 ml-0 px-0">
+            Bienvenido:
+        </div>
+        <div class="col-6 mr-0 px-0 text-center">
+          <a routerLink="/perfil"><strong> {{name}}</strong></a> 
+        </div>
       </div>
       <div class="col col-2">
         <a class="btn btn-block btn-outline-dark py-0" routerLink="/" (click)="auth.Salir()">Salir</a>

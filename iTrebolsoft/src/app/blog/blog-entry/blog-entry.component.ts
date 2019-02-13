@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { ActualizarDataService, Publish, ImagePubl } from 'src/app/admin/publicaciones/actualizar-data.service';
+import { ActualizarDataService, Publish } from 'src/app/admin/publicaciones/actualizar-data.service';
 import { Usuario } from 'src/app/modelos/Usuario';
+import { Image } from 'src/app/modelos/Image';
 
 @Component({
   selector: 'its-blog-entry',
@@ -19,7 +20,7 @@ export class BlogEntryComponent implements OnInit {
 
   id:string = '';
 
-  image:ImagePubl = {
+  image:Image = {
     imageName: '',
     imageUrl: '',
     fkTBlogPublId: ''
@@ -45,7 +46,7 @@ export class BlogEntryComponent implements OnInit {
       this.id = params['id'];
       this._data.ObtenerPublicacionPorID(this.id).subscribe((publ)=>{
         this.publicacion = publ;
-        this._data.ObtenerImagenPorPubl(this.id).subscribe((imagen:ImagePubl[])=>{
+        this._data.ObtenerImagenPorPubl(this.id).subscribe((imagen:Image[])=>{
           console.log('edit-publishComponent|ngInit|imagen');
           console.log(imagen);
           if(imagen.length != 0){

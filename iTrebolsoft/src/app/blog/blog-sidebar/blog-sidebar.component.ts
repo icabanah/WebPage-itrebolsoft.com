@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActualizarDataService, Publish, ImagePubl } from 'src/app/admin/publicaciones/actualizar-data.service';
+import { ActualizarDataService, Publish } from 'src/app/admin/publicaciones/actualizar-data.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Image } from 'src/app/modelos/Image';
 
 @Component({
   selector: 'its-blog-sidebar',
@@ -17,7 +18,7 @@ export class BlogSidebarComponent implements OnInit {
     this._data.ObtenerPublicaciones().subscribe((publicaciones)=>{
       this.Publicaciones = publicaciones;
       this.Publicaciones.forEach((publicacion, index)=>{
-        this._data.ObtenerImagenPorPubl(publicacion.publId).subscribe((imagenes:ImagePubl[])=>{
+        this._data.ObtenerImagenPorPubl(publicacion.publId).subscribe((imagenes:Image[])=>{
           if(imagenes.length != 0)
             this.Imagenes[index] = imagenes[0].imageUrl;
           else this.Imagenes[index] = null;

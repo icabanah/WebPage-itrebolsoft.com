@@ -1,0 +1,30 @@
+<div class="row mt-5 pt-3 ml-3">
+  <div class="col col-12">
+    <div class="row mb-3">
+      <div class="col col-12">
+        <img class="w-100" src="https://pbs.twimg.com/profile_images/584431776245948416/0NB28UmH.jpg" alt="">
+        <small>Foto de perfil</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-12">
+        <div class="row w-100" *ngIf="Usuario">
+            <div class="col col-4"><strong>Nombre:</strong></div>
+            <div class="col col-8">{{Usuario.userFirstName}}</div>
+            <div class="col col-4"><strong>Apellido:</strong></div>
+            <div class="col col-8">{{Usuario.userLastname}}</div>
+            <div class="col col-4"><strong>Email:</strong></div>
+            <div class="col col-8">{{Usuario.userEmail}}</div>
+            <div class="col col-4"><strong>Telefono:</strong></div>
+            <div class="col col-8">{{Usuario.userPhone}}</div>
+            <div class="col col-4"><strong>Git:</strong></div>
+            <div class="col col-8">{{Usuario.userGit}}</div>
+            <div class="col col-4"><strong>Direccion:</strong></div>
+            <div class="col col-8">{{Usuario.userAddress}}</div>
+            <div class="col col-4"><strong>Web:</strong></div>
+            <div class="col col-8">{{Usuario.userWeb}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

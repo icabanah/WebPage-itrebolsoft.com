@@ -38,6 +38,10 @@ export class AuthenticationService {
     return this._http.post(this.baseUrl+'/api/Authentication/LogIn',payload);
   }
 
+  Registrar(payload:CredencialRegistro):Observable<any>{
+    return this._http.post(this.baseUrl+'/api/User',payload);
+  }
+
   Salir():void{
     localStorage.removeItem('UserId');
   }
@@ -48,7 +52,7 @@ export class AuthenticationService {
     else return false;
   }
 
-  Registrar(payload:CredencialRegistro):Observable<any>{
-    return this._http.post(this.baseUrl+'/api/User',payload);
+  ObtenerIdUsuario():string{
+    return JSON.parse(localStorage.getItem('UserId'));
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Image } from 'src/app/modelos/Image';
 
 export interface Publish {
   publId?: string;
@@ -12,13 +13,6 @@ export interface Publish {
   fkTUserUserId?: string;
 }
 
-export interface ImagePubl {
-  imageId?: string,
-  imageName: string,
-  imageUrl: string,
-  fkTBlogPublId: string,
-}
-
 @Injectable()
 
 export class ActualizarDataService {
@@ -26,7 +20,7 @@ export class ActualizarDataService {
   constructor(private _http: HttpClient) { }
 
   // IMAGENES
-  RegistrarImagen(imagen: ImagePubl) {
+  RegistrarImagen(imagen: Image) {
     return this._http.post(this.baseUrl + '/api/CreateImage', imagen);
   }
 
@@ -40,6 +34,10 @@ export class ActualizarDataService {
 
   ObtenerImagenPorPubl(PublId:string):Observable<any>{
     return this._http.get(this.baseUrl+'/api/GetImagesByPublId/'+PublId);
+  }
+
+  ObtenerImagenes():Observable<any>{
+    return this._http.get(this.baseUrl + '/api/GetImages');
   }
 
   // PUBLICACIONES

@@ -1,0 +1,64 @@
+<div class="row h-100">
+    <div class="col col-12 h-100">
+      <div class="row mw-100 h-100">
+        <div class="col col-12">
+
+          <div class="mx-2 mt-2">
+            <a class="btn btn-block btn-outline-dark py-0" routerLink="../registrar-proyecto">Registrar proyecto</a>
+          </div>
+
+          <div class="table-responsive w-100">
+            <table class="table table-striped table-sm w-100">
+              <thead>
+                <tr class="text-center">
+                  <th>ID</th>
+                  <th>IMAGEN</th>
+                  <th>DETALLES DEL PROYECTO</th>
+                </tr>
+              </thead>
+              <tbody class="mw-100" *ngFor="let proy of Proyectos; let i = index;">
+                <tr>
+                  <td>{{i+1}}</td>
+                  <td class="w-25"><img class="img-fluid w-100" src='http://placehold.it/200x200' alt=""></td>
+                  <td>
+                    <div class="row w-100">
+                      <div class="col col-12">
+                        <div class="row">
+                          <div class="col col-6">
+                            <label for="">Nombre: </label><br>
+                            <p>{{proy.proyTitle}}</p>
+                          </div>
+                          <div class="col col-6">
+                            <label for="">Fecha: </label><br>
+                            <p>{{proy.proyDate|date:'short'}}</p>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col col-12">
+                            <label for="">Descripcion: </label><br>
+                            <p>{{proy.proyDesc}}</p>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col col-6">
+                            <label for="">Autor: </label><br>
+                            <p>{{proy.fkTUserUserId}}</p>
+                          </div>
+                          <!-- <div class="col col-6">
+                            <a class="btn btn-block btn-outline-dark" [routerLink]="['./',publ.publId]">Editar</a>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActualizarDataService, Publish, ImagePubl } from '../actualizar-data.service';
+import { ActualizarDataService, Publish } from '../actualizar-data.service';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { HttpClient } from '@angular/common/http';
 import { Router, Params, ActivatedRoute } from '@angular/router';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Image } from 'src/app/modelos/Image';
 
 @Component({
   selector: 'its-new-publish',
@@ -21,7 +21,7 @@ export class NewPublishComponent implements OnInit {
 
   id:string;
 
-  image:ImagePubl = {
+  image:Image = {
     imageName: '',
     imageUrl: '',
     fkTBlogPublId: ''
