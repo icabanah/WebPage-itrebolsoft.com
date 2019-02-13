@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'its-admin',
-    templateUrl: './admin.component.html',
+    selector: 'its-header',
+    templateUrl: './header.component.html',
     styleUrls: []
 })
-export class AdminComponent implements OnInit {
-    name: string;
+export class HeaderComponent implements OnInit {
+    
     constructor() { }
 
     ngOnInit() {

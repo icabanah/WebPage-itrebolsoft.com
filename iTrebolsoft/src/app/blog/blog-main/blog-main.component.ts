@@ -5,11 +5,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Usuario } from 'src/app/modelos/Usuario';
 
 @Component({
-  selector: 'its-blog-content',
-  templateUrl: './blog-content.component.html',
-  styleUrls: ['./blog-content.component.scss']
+  selector: 'its-blog-main',
+  templateUrl: './blog-main.component.html',
+  styles: []
 })
-export class BlogContentComponent implements OnInit {
+export class BlogMainComponent implements OnInit {
   Publicaciones:Publish[] = [];
   Imagenes = [];
   Nombres = [];

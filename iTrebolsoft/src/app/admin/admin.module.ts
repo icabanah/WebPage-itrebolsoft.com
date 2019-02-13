@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HeaderComponent } from './header/header.component';
-import { ContentComponent } from './content/content.component';
+import { SidebarComponent } from './sidebar.component';
+import { HeaderComponent } from './header.component';
+import { ContentComponent } from './content.component';
 
 // modulos
 import { PublicacionesModule } from './publicaciones/publicaciones.module';
+import { AdminRoutingModule } from './admin-routing.module';
 
 
 @NgModule({
