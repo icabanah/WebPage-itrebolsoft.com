@@ -1,77 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
-
-body {
-    // font-family: 'Varela Round', sans-serif;
-    font-family: 'Source Sans Pro', sans-serif;
+body{
+    font-family: 'Montaga', serif;
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
-    color: #868F9B;
+    // background-color: #E5E3DF;
+    nav{
+        a{
+            color: #E5E3DF !important;
+        }
+        background-color: #F54100;
+        button{
+            .navbar-toggler-icon{
+                background-color: #E5E3DF !important;
+            }
+        }
+        ul{
+            
+            li{
+                a{
+                    // background-color: aqua;
+                    color: #E5E3DF !important;
+                }
+                a:hover{
+                    background-color: #E5E3DF !important;
+                    border-radius: 0.5rem;
+                    color: #730517 !important;
+                }
+            }
+        }
 
-    h1, h2, h3, h4, h5, h6 {
-        // font-family: 'Montserrat', sans-serif;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 700;
-        margin-top: 0px;
-        margin-bottom: 20px;
-        color: #10161A;
+        
     }
-    
-    h1 {
-        font-size: 54px;
+    .its-titulo{
+        font-size: 1.2rem;
+        font-weight: bold;
     }
-    
-    h2 {
-        font-size: 36px;
+    .its-titulo-cuerpo{
+        margin-left: 0.2rem;
+        display: inline;
+        font-size: 0.9rem;
+        font-weight: lighter;
     }
-    
-    h3 {
-        font-size: 21px;
+    .its-fila-color{
+        background-color: #E5E3DF;
     }
-    
-    h4 {
-        font-size: 18px;
+    .its-titulo-fecha{
+        background-color: #E5E3DF;
+        border-radius: 0.2rem;
+        display: inline;
     }
-    
-    h5 {
-        font-size: 16px;
-    }
-    
-    a {
-        color: #6195FF;
+    .its-titulo-etiqueta{
+        color: #E5E3DF !important;
+        background-color: #F54100;
+        border-radius: 1.2rem;
+        font-size: 0.8rem;
+        font-style: normal;
         text-decoration: none;
-        -webkit-transition: 0.2s opacity;
-        transition: 0.2s opacity;
     }
-    
-    a:hover, a:focus {
-        text-decoration: none;
-        outline: none;
-        opacity: 0.8;
-        color: #6195FF;
+    .boton{
+        background-color: #E5E3DF;
+        color: #730517 !important;
     }
-    
-    .main-color {
-        color: #6195FF;
+    .boton:hover{
+        background-color: #A70312;
+        color: #E5E3DF !important;
     }
-    
-    .white-text {
-        color: #FFF;
+    h1, h2, h3{
+        color: #632A4E;
+        font-size: 1.2rem;
     }
-    
-    ::-moz-selection {
-        background-color: #6195FF;
-        color: #FFF;
+    p, strong{
+        color: #632A4E;
+        font-size: 0.9em;    }
+    a, li, i{
+        color: #730517;
     }
-    
-    ::selection {
-        background-color: #6195FF;
-        color: #FFF;
-    }
-    
-    ul, ol {
-        margin: 0;
-        padding: 0;
-        list-style: none
-    }
+    li{
+        display: inline;
+    } 
 }

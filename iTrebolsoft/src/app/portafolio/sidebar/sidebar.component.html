@@ -1,3 +1,38 @@
-<p>
-  sidebar works!
-</p>
+<div class="col mt-2 col-lg-12 d-none d-lg-block">
+  <h2>TAGS</h2>
+  <ul>
+    <a href="#" class="d-inline bg-light mr-2"><i class="fab fa-node-js"></i> NodeJS</a>
+    <a href="#" class="d-inline bg-light mr-2"><i class="fab fa-angular"></i> Angular</a>
+    <a href="#" class="d-inline bg-light mr-2"><i class="fa fa-book" aria-hidden="true"></i>.NET Core</a>
+    <a href="#" class="d-inline bg-light mr-2"><i class="fa fa-book" aria-hidden="true"></i>Express</a>
+    <a href="#" class="d-inline bg-light mr-2"><i class="fa fa-book" aria-hidden="true"></i>Bootstrap</a>
+    <a href="#" class="d-inline bg-light mr-2"><i class="fa fa-book" aria-hidden="true"></i>MongoDb</a>
+    <a href="#" class="d-inline bg-light mr-2"><i class="fa fa-book" aria-hidden="true"></i>API</a>
+  </ul>
+</div>
+
+
+<div class="row mx-2 ml-mg-0">
+  <div class="col col-12">
+    <h3>AUTOR</h3>
+    <div class="row mw-100">
+
+      <div class="col col-4 col-sm-6 col-lg-12 w-100 d-flex justify-content-center">
+        <img class="w-75 mx-auto h-100" src="{{Usuario.userPhoto}}" alt="" *ngIf="Usuario">
+      </div>
+
+      <div class="col col-8 col-sm-6 col-lg-12">
+        <ul *ngIf="Usuario">
+          <li class="d-lg-block">Nombre: {{Usuario.userFirstName}} {{Usuario.userLastname}}</li>
+          <li class="d-lg-block">Correo: {{Usuario.userEmail}}</li>
+          <li class="d-lg-block">Web: {{Usuario.userWeb}}</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <div class="row mt-2">
+    </div>
+  </div>
+</div>

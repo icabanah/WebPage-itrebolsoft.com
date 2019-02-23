@@ -1,64 +1,58 @@
-<div class="row mt-5 pt-3 ml-2 mr-0">
+<div class="row mt-3 ml-2 mr-0 ">
   <div class="col col-12">
     <div class="row">
-      <div class="col col-12">
-        <img class="mw-100" src="{{image.imageUrl}}" alt="">
+      <div class="col col-12 w-100 ">
+        <img class="w-100 mx-auto" src="{{Imagen[0].imageUrl}}" alt="" *ngIf="Imagen.length != 0">
       </div>
     </div>
     <div class="row mt-3">
       <div class="col col-12">
-          <ul class="blog-meta mx-auto">
-              <li class="d-inline-block mr-4"><i class="fa fa-user"></i>{{Autor.userFirstName}}</li>
-              <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>{{publicacion.publDate|date:'short'}}</li>
-              <li class="d-inline-block mr-4"><i class="fa fa-comments"></i></li>
+        <ul class="blog-meta mx-auto" *ngIf="Usuario">
+          <li class="d-inline-block mr-4"><a routerLink="/portafolio"></a> <i
+              class="fa fa-user"></i>{{Usuario.userFirstName}}</li>
+          <li class="d-inline-block mr-4"><i class="fa fa-clock-o"></i>{{Publicacion.publDate|date:'short'}}</li>
+          <!-- <li class="d-inline-block mr-4"><i class="fa fa-comments"></i></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-2" *ngIf="Publicacion">
+      <div class="col col-12">
+        <h2>{{Publicacion.publName}}</h2>
+      </div>
+    </div>
+    <div class="row mt-2" *ngIf="Publicacion">
+      <div class="col col-12">
+        <!-- <div contenteditable="true">{{Publicacion.publBody}}</div> -->
+        <div [innerHtml]='Publicacion.publBody'></div>
+      </div>
+    </div>
+    <div class="row mt-2 mb-2">
+      <div class="col col-12">
+        <h5>Tags :</h5>
+        <div class="blog-tags" *ngFor="let tag of tags; let i = index">
+          <a class="mr-2 bg-light"><i class="fas fa-tag    "></i>{{tag}}</a>
+        </div>
+      </div>
+    </div>
+    <h3>Sobre el autor</h3>
+    <div class="row w-100" *ngIf="Usuario">
+      <div class="col col-2">
+        <img class="w-100" src="{{Usuario.userPhoto}}" alt="">
+      </div>
+      <div class="col col-4">
+        <div class="row">
+          <div class="col col-6"><h3>{{Usuario.userFirstName}}</h3></div>
+          <div class="col col-6"><ul class="">
+              <li class="d-inline-block mr-3"><a href="https://wwww.facebook.com/itrebolsoft"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="d-inline-block mr-3"><a routerLink="/portafolio"><i class="far fa-folder"></i></a></li>
             </ul>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col col-12">
-        <h2>{{publicacion.publName}}</h2>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col col-12">
-        <p>{{publicacion.publBody}}</p>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col col-12">
-        <div class="blog-tags">
-            <h5>Tags :</h5>
-            <a class="mr-2 bg-light"><i class="d-inline-block fa fa-tag"></i>Web</a>
-            <a class="mr-2 bg-light"><i class="d-inline-block fa fa-tag"></i>Design</a>
-            <a class="mr-2 bg-light"><i class="d-inline-block fa fa-tag"></i>Marketing</a>
-            <a class="mr-2 bg-light"><i class="d-inline-block fa fa-tag"></i>Development</a>
-            <a class="mr-2 bg-light"><i class="d-inline-block fa fa-tag"></i>Branding</a>
-            <a class="mr-2 bg-light"><i class="d-inline-block fa fa-tag"></i>Photography</a>
           </div>
+        </div>
+       <div class="row">
+         <div class="col col-12">{{Usuario.userEmail}}</div>
+       </div>
       </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col col-12">
-          <div class="blog-author">
-							<div class="media">
-								<div class="media-left">
-									<img class="media-object" src="./img/author.jpg" alt="">
-								</div>
-								<div class="media-body">
-									<div class="media-heading">
-										<h3>{{Autor.userFirstName}}</h3>
-										<!-- <div class="author-social">
-											<a href="#"><i class="fas fa-facebook-f fa-sm fa-fw"></i></a>
-											<a href="#"><i class="fa fa-twitter"></i></a>
-											<a href="#"><i class="fa fa-google-plus"></i></a>
-											<a href="#"><i class="fa fa-instagram"></i></a>
-										</div> -->
-									</div>
-									<p>{{Autor.userRole}}</p>
-								</div>
-							</div>
-						</div>
-      </div>
+
     </div>
     <div class="row mt-2">
       <div class="col col-12"></div>
@@ -68,5 +62,3 @@
     </div>
   </div>
 </div>
-
-

@@ -1,37 +1,39 @@
 <!-- ASIDE -->
-<div class="row mt-5 pt-3" id="aside">
+<div class="row mt-2 ml-3 pt-2 its-blog-sidebar">
   <div class="col-12">
 
     <!--  Busqueda -->
-    <div class="row pb-3">
+    <div class="row pb-2">
       <div class="col col-12">
-        <input class="search-input w-75" type="text" placeholder="search">
-        <button class="search-btn w-25" type="button"><i class="fa fa-search"></i></button>
+        <input class="w-75" type="text" placeholder="Buscar">
+        <button class="w-25" type="button"><i class="fa fa-search"></i></button>
       </div>
     </div>
 
     <!-- Categorias -->
-    <div class="row pb-3">
+    <div class="row pb-1">
       <div class="col col-12">
-        <div class="row">
+
+        <div class="row d-none d-md-block">
           <div class="col col-12">
             <h3>CATEGORIAS</h3>
           </div>
         </div>
+
         <div class="row">
-          <div class="col col-12">
-            <a href="#" class="d-block">Web Design<span class="float-right">(7)</span></a>
-            <a href="#" class="d-block">Marketing<span class="float-right">(142)</span></a>
-            <a href="#" class="d-block">Web Development<span class="float-right">(74)</span></a>
-            <a href="#" class="d-block">Branding<span class="float-right">(60)</span></a>
-            <a href="#" class="d-block">Photography<span class="float-right">(5)</span></a>
+          <div class="col col-12 tags">
+            <a href="#" class="d-inline-block mr-2 px-2">Front-end</a>
+            <a href="#" class="d-inline-block mr-2 px-2">Back-end</a>
+            <a href="#" class="d-inline-block mr-2 px-2">Tutorial</a>
+            <a href="#" class="d-inline-block mr-2 px-2">Articulo</a>
           </div>
         </div>
+        
       </div>
     </div>
 
     <!-- ENTRADAS POPULARES -->
-    <div class="row pb-3">
+    <div class="row pb-3 d-none d-md-block">
       <div class="col col-12">
         <div class="row">
           <div class="col col-12">
@@ -44,19 +46,16 @@
             </div>
 
             <div class="row mb-2" *ngFor="let publ of Publicaciones|slice:0:3; let i = index;">
-              <div class="col col-6">
-                <img class="w-100" src="{{Imagenes[i]}}" alt="">
+            <!-- <div class="row mb-2" *ngFor="let publ of Publicaciones; let i = index;"> -->
+              <div class="col col-6" >
+                <a [routerLink]="['./',publ.publId]"><img class="w-100" src="{{Imagenes[i].imageUrl}}" *ngIf="Imagenes.length !== 0"></a>
               </div>
               <div class="col col-6">
                 <div class="row">
-                  <div class="col col-12">{{publ.publName}}</div>
+                  <a [routerLink]="['./',publ.publId]"><h4 class="col col-12">{{publ.publName}}</h4></a>
                 </div>
                 <div class="row">
-                  <div class="col col-12">
-                    <ul class="blog-meta">
-                      <li>{{publ.publDate|date:'short'}}</li>
-                    </ul>
-                  </div>
+                  <h5 class="col col-12">{{publ.publDesc}}</h5>
                 </div>
               </div>
             </div>
@@ -67,7 +66,7 @@
     </div>
 
     <!-- TAGS -->
-    <div class="row">
+    <!-- <div class="row">
       <div class="col col-12">
         <div class="row">
           <div class="col col-12">
@@ -76,17 +75,14 @@
         </div>
         <div class="row mt-0">
           <div class="col col-12">
-            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Web</a>
-            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Design</a>
-            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Graphic</a>
-            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Marketing</a>
-            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Development</a>
-            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Branding</a>
-            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Photography</a>
+            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Front-end</a>
+            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Back-end</a>
+            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Tutorial</a>
+            <a class="d-inline-block p-2 mx-1 my-1 bg-info text-white" href="#">Articulo</a>
           </div>
         </div>
       </div>
 
-    </div>
+    </div> -->
   </div>
 </div>

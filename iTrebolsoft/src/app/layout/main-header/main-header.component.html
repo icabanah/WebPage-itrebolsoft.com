@@ -1,43 +1,44 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-  <a class="navbar-brand ml-3" routerLink="/">iTrebolsoft</a>
-  <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
-  <div class="collapse navbar-collapse d-flex justify-content-center w-100" id="collapsibleNavId">
+<nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand" routerLink="/">iTrebolsoft</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/blog">Blog <span class="sr-only">(current)</span></a>
+        <a class="nav-link py-0" routerLink="/blog">Blog <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link py-0 nav-a" href="#">About us</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link py-0" routerLink="/portafolio">Portafolio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/portafolio">Portafolio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Servicios</a>
+        <a class="nav-link py-0" routerLink="/contacto">Contacto</a>
       </li>
       <li class="nav-item" *ngIf="!auth.isLogged()">
-        <a class="nav-link" routerLink="/login">Ingresar</a>
-      </li>
-      <li class="nav-item" *ngIf="!auth.isLogged()">
-        <a class="nav-link" href="#">Registrate</a>
+        <a class="nav-link py-0" routerLink="/login">Ingresar</a>
       </li>
     </ul>
-    <div class="row w-50 d-flex justify-content-end" *ngIf="auth.isLogged()">
-      <div class="col col-3">
-        <a class="btn btn-block btn-outline-danger py-0" routerLink="/admin">Ir al panel</a>
+
+    <div class="row navbar-nav w-50 d-flex justify-content-end" *ngIf="auth.isLogged()">
+      
+      <div class="col col-12 col-lg-4 mt-2 my-lg-0">
+        <a class="btn btn-block boton py-0" routerLink="/admin">Ir al panel</a>
       </div>
-      <div class="col col-4 d-flex align-items-center border">
-        <div class="col-6 ml-0 px-0">
-            Bienvenido:
-        </div>
-        <div class="col-6 mr-0 px-0 text-center">
-          <a routerLink="/perfil"><strong> {{name}}</strong></a> 
-        </div>
+
+      <div class="col col-12 my-2 my-lg-0 col-lg-4 d-none d-lg-block d-flex align-items-lg-center">
+          <a class="btn btn-block boton py-0" routerLink="/perfil">{{name}}</a>
       </div>
-      <div class="col col-2">
-        <a class="btn btn-block btn-outline-dark py-0" routerLink="/" (click)="auth.Salir()">Salir</a>
+
+      <div class="col col-12 col-lg-4">
+        <a class="btn btn-block boton py-0" routerLink="/" (click)="auth.Salir()">Salir</a>
       </div>
+
     </div>
   </div>
 </nav>

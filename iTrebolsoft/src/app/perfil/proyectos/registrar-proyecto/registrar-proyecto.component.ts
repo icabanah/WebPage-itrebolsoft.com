@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectosDataService } from 'src/app/portafolio/proyectos-data.service';
 import { Image } from 'src/app/modelos/Image';
-import { ActualizarDataService } from 'src/app/admin/publicaciones/actualizar-data.service';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/modelos/Proyecto';
+import { ActualizarDataService } from 'src/app/services/actualizar-data.service';
 
 @Component({
   selector: 'its-registrar-proyecto',
@@ -15,7 +14,9 @@ export class RegistrarProyectoComponent implements OnInit {
   proyecto:Proyecto = {
     proyTitle: '',
     proyDesc: '',
-    proyDate: new Date,
+    proyDate: new Date(),
+    proyUrl: '',
+    proyEtiq: '',
     fkTUserUserId: JSON.parse(localStorage.getItem('UserId'))
   }
 
@@ -26,22 +27,20 @@ export class RegistrarProyectoComponent implements OnInit {
     fkTProductoProdId: null,
     fkTProyProyId: ''
   }
-  constructor(private _data:ProyectosDataService, 
-              private _dataImage:ActualizarDataService,
+  ProyectoRegistrado:string = '';
+  ImagenRegistrado:string = '';
+  constructor(private _data:ActualizarDataService,
               private _router:Router) { }
 
   ngOnInit() {
   }
 
   RegistrarProyecto(){
-    this._data.RegistrarProyecto(this.proyecto).subscribe((ProyectoId)=>{
-      if(ProyectoId){
-        this.imagen.fkTProyProyId = ProyectoId;
-        this._dataImage.RegistrarImagen(this.imagen).subscribe((ImageId)=>{
-          this._router.navigateByUrl("/perfil/proyectos");
-        })
-      }
-    })
+    this._data.RegistrarProyecto(this.proyecto, this.imagen).then((respuesta)=>{
+      this.ProyectoRegistrado = respuesta.ProyectoRegistrado;
+      this.ImagenRegistrado = respuesta.ImagenRegistrada;
+      this._router.navigateByUrl("/perfil/proyectos");
+    });
   }
 
 }

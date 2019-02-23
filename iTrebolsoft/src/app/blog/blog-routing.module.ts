@@ -9,15 +9,15 @@ const routes: Routes = [
     path:'',
     component:BlogComponent,
     children:[
+      // {
+      //   path:'', redirectTo: '/blog', pathMatch: 'full'
+      // },
       {
-        path:'', redirectTo: '/blog', pathMatch: 'full'
-      },
-      {
-        path:'blog',
+        path:'',
         component: BlogMainComponent
       },
       {
-        path:'blog/:id',
+        path:':id',
         component:BlogEntryComponent
       }
     ]

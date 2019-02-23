@@ -1,0 +1,40 @@
+<div class="row d-flex align-items-center mt-5 w-100">
+  <div class="col col-12 m-auto text-center w-100">
+    <h1>REGISTRO</h1>
+    <div class="form-group row mw-100 mx-1">
+      <input type="text" class="form-control col col-4 w-100" name="credenciales.UserName" placeholder="Username"
+        [(ngModel)]="credenciales.UserName">
+      <input type="text" class="form-control col col-4 w-100" name="credenciales.UserFirstName" placeholder="Nombres"
+        [(ngModel)]="credenciales.UserFirstName">
+      <input type="text" class="form-control col col-4 w-100" name="credenciales.UserLastName" placeholder="Apellido"
+        [(ngModel)]="credenciales.UserLastName">
+    </div>
+    <div>
+      <input type="text" class="form-control" name="credenciales.UserGit" placeholder="Git"
+        [(ngModel)]="credenciales.UserGit">
+      <input type="email" class="form-control" name="credenciales.UserEmail" placeholder="Email"
+        [(ngModel)]="credenciales.UserEmail">
+      <input type="text" class="form-control" name="credenciales.UserRole" placeholder="Rol"
+        [(ngModel)]="credenciales.UserRole">
+      <input type="text" class="form-control" name="credenciales.UserPhoto" placeholder="Url Imagen"
+        [(ngModel)]="credenciales.UserPhoto">
+      <input type="text" class="form-control" name="credenciales.UserPhone" placeholder="Teléfono"
+        [(ngModel)]="credenciales.UserPhone">
+      <input type="text" class="form-control" name="credenciales.UserAddress" placeholder="Dirección"
+        [(ngModel)]="credenciales.UserAddress">
+      <input type="text" class="form-control" name="credenciales.UserWeb" placeholder="Web"
+        [(ngModel)]="credenciales.UserWeb">
+      <input type="password" class="form-control" name="credenciales.Password" placeholder="Contraseña"
+        [(ngModel)]="credenciales.Password">
+      <input type="password" class="form-control" name="credenciales.ConfirmPassword" placeholder="Confirmar contraseña"
+        [(ngModel)]="credenciales.ConfirmPassword">
+    </div>
+    <div class="form-check mb-4">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+    </div>
+    <div class="form-group">
+      <button class="btn-block btn-primary boton" style="cursor: pointer;" (click)="Registrar()">Ingresa</button>
+    </div>
+  </div>
+</div>

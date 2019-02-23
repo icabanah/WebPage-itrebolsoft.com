@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { ActualizarDataService, Publish } from 'src/app/admin/publicaciones/actualizar-data.service';
 import { Usuario } from 'src/app/modelos/Usuario';
 import { Image } from 'src/app/modelos/Image';
+import { ActualizarDataService } from 'src/app/services/actualizar-data.service';
+import { Publish } from 'src/app/modelos/Publish';
 
 @Component({
   selector: 'its-blog-entry',
@@ -10,59 +11,22 @@ import { Image } from 'src/app/modelos/Image';
   styleUrls: ['./blog-entry.component.scss']
 })
 export class BlogEntryComponent implements OnInit {
-  publicacion:Publish = {
-    publName: '',
-    publDesc: '',
-    publBody: '',
-    publDate: new Date,
-    fkTUserUserId: JSON.parse(localStorage.getItem('UserId'))
-  }
-
+  Publicacion:Publish;
+  Imagen:Image[] = [];
   id:string = '';
-
-  image:Image = {
-    imageName: '',
-    imageUrl: '',
-    fkTBlogPublId: ''
-  }
-
-  Autor:Usuario = {
-    userId: '',
-    userFirstName: '',
-    userLastname: '',
-    userGit: '',
-    userEmail: '',
-    userRole: '',
-    userPhone: '',
-    userAddress: '',
-    userWeb: '',
-    token: ''
-  }
-
+  Usuario:Usuario;
+  tags:string[] = [];
   constructor(private _route:ActivatedRoute, private _router:Router, private _data:ActualizarDataService) { }
 
-  ngOnInit() {
-    this._route.params.subscribe((params:Params)=>{
+  async ngOnInit() {
+    await this._route.params.subscribe(async (params:Params)=>{
       this.id = params['id'];
-      this._data.ObtenerPublicacionPorID(this.id).subscribe((publ)=>{
-        this.publicacion = publ;
-        this._data.ObtenerImagenPorPubl(this.id).subscribe((imagen:Image[])=>{
-          console.log('edit-publishComponent|ngInit|imagen');
-          console.log(imagen);
-          if(imagen.length != 0){
-            this.image = imagen[0];
-          }
-        })
-      });
-
-      this._data.ObtenerDetallesUsuario(this.publicacion.fkTUserUserId).subscribe((autor)=>{
-        if(autor){
-          this.Autor = autor;
-        }
-        else{
-          this.Autor = null;
-        }
-      });
+      let { Publicacion, Imagen, Usuario } = await this._data.ObtenerPublicacionPorID(this.id);
+      this.Publicacion = Publicacion;
+      this.Imagen = Imagen;
+      this.Usuario = Usuario;
+      this.tags = await this.Publicacion.publEtiq.split(',');
+      console.log(this.tags);
     });
   }
 

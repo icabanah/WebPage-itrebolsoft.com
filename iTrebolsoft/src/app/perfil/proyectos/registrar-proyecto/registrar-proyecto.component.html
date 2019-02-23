@@ -1,13 +1,22 @@
-<div class="row mt-5 py-3">
+<div class="row mt-3">
   <div class="col col-12">
-
+    <h1>REGISTRAR PROYECTO</h1>
     <div class="input-group w-100">
       <label class="w-25" for="proyecto.proyTitle">Titulo de proyecto</label>
       <input class="w-75" type="text" name="proyecto.proyTitle" [(ngModel)]="proyecto.proyTitle">
     </div>
     <div class="input-group w-100">
       <label class="w-25" for="proyecto.proyDesc">Descripción de proyecto</label>
-      <input class="w-75" type="text" name="proyecto.proyDesc" [(ngModel)]="proyecto.proyDesc">
+      <textarea class="w-75" name="proyecto.proyDesc" [(ngModel)]="proyecto.proyDesc" placeholder="Descripción"></textarea>
+    </div>
+    <hr>
+    <div class="input-group w-100">
+      <label class="w-25" for="proyecto.proyDesc">Url de despliegue de proyecto</label>
+      <input class="w-75" type="text" name="proyecto.proyUrl" [(ngModel)]="proyecto.proyUrl">
+    </div>
+    <div class="input-group w-100">
+      <label class="w-25" for="proyecto.proyDesc">Tecnologías usadas</label>
+      <input class="w-75" type="text" name="proyecto.proyEtiq" [(ngModel)]="proyecto.proyEtiq">
     </div>
     <hr>
     <div class="input-group w-100">
@@ -20,6 +29,7 @@
     </div>
     <hr>
     <div class="input-group w-100">
+      <a class="btn btn-block btn-outline-dark py-0" routerLink="/perfil/proyectos">Volver</a>
       <a class="btn btn-block btn-outline-dark py-0" (click)="RegistrarProyecto()">Registrar</a>
     </div>
     

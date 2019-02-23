@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public credenciales:CredencialIngreso={
-    UserName:'',
+    userName:'',
     password:''
   }
 

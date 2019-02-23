@@ -9,11 +9,12 @@ const routes: Routes = [
     path: '',
     component:PortafolioComponent,
     children:[
-      // {
-      //   path: '', redirectTo: '/proyectos', pathMatch: 'full'
-      // },
       {
         path: '',
+        component: ProjectsComponent
+      },
+      {
+        path: 'portafolio',
         component: ProjectsComponent
       },
       {

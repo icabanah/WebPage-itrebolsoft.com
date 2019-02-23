@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CredencialIngreso, AuthenticationService, TokenResponse } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
-import { ActualizarDataService } from 'src/app/admin/publicaciones/actualizar-data.service';
+import { ActualizarDataService } from 'src/app/services/actualizar-data.service';
 
 @Component({
   selector: 'its-main-header',
@@ -14,7 +14,7 @@ export class MainHeaderComponent implements OnInit {
 
   ngOnInit() {
       if(localStorage.getItem('UserId')){
-        this._data.ObtenerDetallesUsuario(JSON.parse(localStorage.getItem('UserId'))).subscribe((response)=>{
+        this._data.ObtenerDetallesUsuario(JSON.parse(localStorage.getItem('UserId'))).then((response)=>{
           this.name = response.userFirstName;
         });
     }

@@ -1,13 +1,11 @@
-<div class="row mt-5 pt-3 ml-3">
+<div class="row mt-3 mx-2 ml-md-3">
   <div class="col col-12">
     <div class="row mb-3">
-      <div class="col col-12">
-        <img class="w-100" src="https://pbs.twimg.com/profile_images/584431776245948416/0NB28UmH.jpg" alt="">
+      <div class="col col-4 col-md-12">
+        <img class="w-100" src="{{Usuario.userPhoto}}" alt="" *ngIf="Usuario">
         <small>Foto de perfil</small>
       </div>
-    </div>
-    <div class="row">
-      <div class="col col-12">
+      <div class="col col-8 col-md-12">
         <div class="row w-100" *ngIf="Usuario">
             <div class="col col-4"><strong>Nombre:</strong></div>
             <div class="col col-8">{{Usuario.userFirstName}}</div>
@@ -26,5 +24,7 @@
         </div>
       </div>
     </div>
+    <!-- <div class="row">
+    </div> -->
   </div>
 </div>

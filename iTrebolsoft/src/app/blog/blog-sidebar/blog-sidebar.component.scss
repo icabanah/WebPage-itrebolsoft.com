@@ -1,14 +1,39 @@
 /* sidebar */
-.row{
-    .col{
-        h3{
-            text-transform: uppercase;
-        }
+.its-blog-sidebar{
+    background-color: #E5E3DF;
+    border-radius: 1.2rem;
+
+    h3{
+        color: #730517;
+        font-size: 1.0em;
+    }
+
+    h4{
+        color: #730517;
+        font-size: 0.9em;
+    }
+
+    h5{
+        color: #730517;
+        font-size: 0.8em;
+    }
+    a{
+        text-decoration: none;
+    }
+
+    .tags{
         a{
-            color: #354052;
-            span{
-                color: #6195FF;
-            }
+            background-color: #F54100;
+            color: #E5E3DF;
+            border-radius: 1.2rem;
+            font-size: 0.8rem;
+            font-style: normal;
+            text-decoration: none;
+        }
+        a:hover{
+            background-color: #E5E3DF;
+            color: #730517;
         }
     }
+    
 }

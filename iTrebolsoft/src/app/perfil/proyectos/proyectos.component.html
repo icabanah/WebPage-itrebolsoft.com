@@ -1,64 +1,122 @@
-<div class="row h-100">
-    <div class="col col-12 h-100">
-      <div class="row mw-100 h-100">
-        <div class="col col-12">
+<div class="row h-100 w-100 mx-2">
+  <div class="col col-12 h-100 w-100">
+    <div class="row h-100 w-100 mx-auto ">
+      <div class="col col-12 w-100 ">
 
-          <div class="mx-2 mt-2">
-            <a class="btn btn-block btn-outline-dark py-0" routerLink="../registrar-proyecto">Registrar proyecto</a>
+        <div class="row mt-3 mw-100">
+          <div class="col col-6">
+            <h3>PROYECTOS</h3>
           </div>
+          <div class="col col-6">
+            <a routerLink="../nuevo-proyecto" class="btn btn-block btn-outline-danger py-0 ">Nuevo proyecto</a>
+          </div>
+        </div>
 
-          <div class="table-responsive w-100">
-            <table class="table table-striped table-sm w-100">
-              <thead>
-                <tr class="text-center">
-                  <th>ID</th>
-                  <th>IMAGEN</th>
-                  <th>DETALLES DEL PROYECTO</th>
-                </tr>
-              </thead>
-              <tbody class="mw-100" *ngFor="let proy of Proyectos; let i = index;">
-                <tr>
-                  <td>{{i+1}}</td>
-                  <td class="w-25"><img class="img-fluid w-100" src='http://placehold.it/200x200' alt=""></td>
-                  <td>
-                    <div class="row w-100">
-                      <div class="col col-12">
-                        <div class="row">
-                          <div class="col col-6">
-                            <label for="">Nombre: </label><br>
-                            <p>{{proy.proyTitle}}</p>
-                          </div>
-                          <div class="col col-6">
-                            <label for="">Fecha: </label><br>
-                            <p>{{proy.proyDate|date:'short'}}</p>
+        <div class="table-responsive w-100 d-none d-md-block">
+          <table class="table table-striped table-sm w-100">
+            <thead>
+              <tr class="text-center">
+                <th>#</th>
+                <th>IMAGEN</th>
+                <th>DETALLES DEL PROYECTO</th>
+              </tr>
+            </thead>
+            <tbody class="mw-100" *ngFor="let proy of Proyectos; let i = index; let EsPar = odd"
+              [class.its-fila-color]="EsPar">
+              <tr>
+                <td>{{i+1}}</td>
+                <td class="w-25"><img class="img-fluid w-100" [src]='Imagenes[i].imageUrl' alt="" *ngIf="Imagenes[i]">
+                </td>
+                <td>
+                  <div class="row w-100">
+                    <div class="col col-12">
+                      <div class="row">
+                        <div class="col col-6">
+                          <label class="its-titulo">Nombre: </label>
+                          <div class="its-titulo-cuerpo">{{proy.proyTitle}}</div>
+                        </div>
+                        <div class="col col-6">
+                          <label class="its-titulo">Fue agregado: </label>
+                          <div class="its-titulo-fecha">{{proy.proyDate|date:'short'}}</div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col col-12">
+                          <label class="its-titulo">Descripcion: </label>
+                          <div class="its-titulo-cuerpo">{{proy.proyDesc}}</div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col col-12">
+                          <label class="its-titulo">Tecnologias usadas: </label>
+                          <div class="d-inline" *ngFor="let etiqueta of Etiquetas[i]">
+                            <a class="d-inline-block mr-2 its-titulo-etiqueta px-2">{{etiqueta}}</a>
                           </div>
                         </div>
-                        <hr>
-                        <div class="row">
-                          <div class="col col-12">
-                            <label for="">Descripcion: </label><br>
-                            <p>{{proy.proyDesc}}</p>
-                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col col-6">
+                          <label class="its-titulo">Url: </label><br>
+                          <a class="badge badge-info its-titulo-cuerpo" href="{{proy.proyUrl}}">{{proy.proyUrl}}</a>
                         </div>
-                        <hr>
-                        <div class="row">
-                          <div class="col col-6">
-                            <label for="">Autor: </label><br>
-                            <p>{{proy.fkTUserUserId}}</p>
-                          </div>
-                          <!-- <div class="col col-6">
-                            <a class="btn btn-block btn-outline-dark" [routerLink]="['./',publ.publId]">Editar</a>
-                          </div> -->
+                        <div class="col col-6 d-flex align-items-end">
+                          <!-- <a class="btn btn-block btn-outline-dark" [routerLink]="['./',publ.publId]">Editar</a> -->
+                          <a class="btn btn-block btn-outline-dark py-0"
+                            [routerLink]="['../editar-proyecto/',proy.proyId]">Editar proyecto</a>
                         </div>
                       </div>
                     </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        <div class="row mw-100 d-md-none" >
+          <div class="col col-12 mw-100 " *ngFor="let proy of Proyectos; let i = index;">
+            <div class="row">
+              <div class="col col-12">
+                <div class="h3">{{proy.proyTitle}}</div>
+              </div>
+            </div>
+            <div class="col col-12 w-100">
+              <img class="w-100" [src]="Imagenes[i].imageUrl" *ngIf="Imagenes[i]">
+            </div>
+            <div class="col col-12 mb-2">
+              <div class="row">
+                <div class="col col-12">
+                  <label class="its-titulo">Descripcion: </label>
+                  <div class="its-titulo-cuerpo">{{proy.proyDesc}}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-12">
+                  <label class="its-titulo">Tecnologias usadas: </label>
+                  <div class="d-inline" *ngFor="let etiqueta of Etiquetas[i]">
+                    <a class="d-inline-block mr-2 its-titulo-etiqueta px-2">{{etiqueta}}</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-12 d-flex justify-content-between">
+                  <label class="its-titulo">Url: </label>
+                  <a class="badge badge-info pb-0 its-titulo-cuerpo" href="{{proy.proyUrl}}">{{proy.proyUrl}}</a>
+                </div>
+                <div class="col col-12">
+                  <a class="btn btn-block btn-outline-danger py-0"
+                    [routerLink]="['../editar-proyecto/',proy.proyId]">Editar
+                    proyecto</a>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+</div>

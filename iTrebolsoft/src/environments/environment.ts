@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "https://localhost:44360"
+  // baseUrl: "https://localhost:44360"
+  baseUrl: "https://itrebolsoft-api.azurewebsites.net"
 };
 
 /*

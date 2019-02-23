@@ -6,9 +6,8 @@ import { PortafolioComponent } from './portafolio.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectComponent } from './project/project.component';
-import { ProyectosDataService } from './proyectos-data.service';
 import { AuthenticationService } from '../services/authentication.service';
-import { ActualizarDataService } from '../admin/publicaciones/actualizar-data.service';
+import { ActualizarDataService } from '../services/actualizar-data.service';
 
 @NgModule({
   declarations: [PortafolioComponent, SidebarComponent, ProjectsComponent, ProjectComponent],
@@ -17,6 +16,6 @@ import { ActualizarDataService } from '../admin/publicaciones/actualizar-data.se
     PortafolioRoutingModule,
     HttpClientModule
   ],
-  providers:[ProyectosDataService, AuthenticationService, ActualizarDataService]
+  providers:[AuthenticationService, ActualizarDataService]
 })
 export class PortafolioModule { }

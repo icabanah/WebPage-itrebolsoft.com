@@ -9,7 +9,10 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
+        path: '', redirectTo: '/blog', pathMatch: 'full'
+      },
+      {
+        path: 'blog',
         loadChildren: '../blog/blog.module#BlogModule'
       },
       {
@@ -19,6 +22,10 @@ const routes: Routes = [
       {
         path: 'perfil',
         loadChildren: '../perfil/perfil.module#PerfilModule'
+      },
+      {
+        path: 'contacto',
+        loadChildren: '../contacto/contacto.module#ContactoModule'
       }
     ]
   }

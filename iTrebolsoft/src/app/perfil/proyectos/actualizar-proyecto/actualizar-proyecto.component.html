@@ -1,3 +1,39 @@
-<p>
-  actualizar-proyecto works!
-</p>
+<div class="row mt-3">
+  <div class="col col-12" *ngIf="Proyecto">
+    <h1>ACTUALIZAR PROYECTO</h1>
+    <div class="input-group w-100">
+      <label class="w-25" for="Proyecto.proyTitle">Titulo de proyecto</label>
+      <input class="w-75" type="text" name="Proyecto.proyTitle" [(ngModel)]="Proyecto.proyTitle">
+    </div>
+    <div class="input-group w-100">
+      <label class="w-25" for="Proyecto.proyDesc">Descripción de proyecto</label>
+      <textarea class="w-75" name="Proyecto.proyDesc" [(ngModel)]="Proyecto.proyDesc"
+        placeholder="Descripción"></textarea>
+    </div>
+    <hr>
+    <div class="input-group w-100">
+      <label class="w-25" for="Proyecto.proyDesc">Url de despliegue de proyecto</label>
+      <input class="w-75" type="text" name="Proyecto.proyUrl" [(ngModel)]="Proyecto.proyUrl">
+    </div>
+    <div class="input-group w-100">
+      <label class="w-25" for="Proyecto.proyDesc">Tecnologías usadas</label>
+      <input class="w-75" type="text" name="Proyecto.proyEtiq" [(ngModel)]="Proyecto.proyEtiq">
+    </div>
+    <hr>
+    <div class="input-group w-100">
+      <label class="w-25" for="Imagen.imageName">Nombre de imagen</label>
+      <input class="w-75" type="text" name="Imagen.imageName" [(ngModel)]="Imagen.imageName">
+    </div>
+    <div class="input-group w-100">
+      <label class="w-25" for="Imagen.imageUrl">Url de Imagen</label>
+      <input class="w-75" type="text" name="Imagen.imageUrl" [(ngModel)]="Imagen.imageUrl">
+    </div>
+    <hr>
+
+  </div>
+  <div class="input-group w-100">
+    <a class="btn btn-block btn-outline-dark py-0" routerLink="/perfil">Volver</a>
+    <a class="btn btn-block btn-outline-dark py-0" (click)="EliminarProyecto()">Eliminar</a>
+    <a class="btn btn-block btn-outline-dark py-0" (click)="ActualizarProyecto()">Actualizar</a>
+  </div>
+</div>

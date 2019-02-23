@@ -1,35 +1,37 @@
-<main class="row mt-5 pt-3 w-100">
-  <div class="col col-12 ">
+<main class="row mt-2 mx-2 ml-md-3 w-100">
+  <div class="col col-12 w-100">
+    <h1>PORTAFOLIO</h1>
 
-    <div class="row d-flex justify-content-center" *ngIf="Proyectos.length == 0">
-      <div class="alert alert-danger">
-        No tiene proyectos aún <a class="btn btn-outline-dark" routerLink="">Añada uno</a>
-      </div>
-    </div>
-
-    <div class="py-5 bg-light" *ngIf="Proyectos.length != 0">
-      <div class="row">
-        <div class="col-md-4" *ngFor="let proyecto of Proyectos; let i=index;">
+    <div class="w-100 bg-light" *ngIf="Proyectos.length != 0">
+      <div class="row w-100">
+        <div class="col-md-4 w-100" *ngFor="let proyecto of Proyectos; let i=index;">
 
           <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="http://placehold.it/200x200" alt="Card image cap">
+            <div *ngIf="Imagenes[i]">
+              <a routerLink="" data-toggle="modal" data-target="#modelId" (click)="abrirImagen(i)">
+                <img class="card-img-top" [src]="Imagenes[i].imageUrl">
+              </a>
+            </div>
             <div class="card-body">
               <div class="row text-center">
-                <div class="col col-8">
-                  <h4>{{proyecto.ProyTitle}}</h4>
+                <div class="col col-12">
+                  <h5>{{proyecto.proyTitle}}</h5>
                 </div>
-                <div class="col col-4">
-                  <p class="card-text bg-light-inverse">{{proyecto.ProyDate|date:'short'}}</p>
+                <div class="col col-12">
+                  <p class="card-text">{{proyecto.proyDesc}}</p>
+                </div>
+                <div class="col col-12">
+                  <div class="d-inline" *ngFor="let etiqueta of Etiquetas[i]">
+                    <a class="d-inline-block mr-2 its-titulo-etiqueta px-2">{{etiqueta}}</a>
+                  </div>
+                </div>
+                <div class="col col-12">
+                  <a href="{{proyecto.proyUrl}}" class="badge badge-info">{{proyecto.proyUrl}}</a>
                 </div>
               </div>
-              <p class="card-text">{{proyecto.FkTUserUserId}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['./',proyecto.ProyId]">Mas
-                    detalles...</button>
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
-                </div>
-                <!-- <small class="text-muted ml-auto">stock:{{proyecto.pro_sto}}</small> -->
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
               </div>
             </div>
           </div>
@@ -40,3 +42,23 @@
 
   </div>
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" *ngIf="Proyecto">{{Proyecto.proyTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="card-img-top" [src]="Imagen.imageUrl" *ngIf="Imagen">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

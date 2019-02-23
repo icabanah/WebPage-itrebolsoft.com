@@ -7,6 +7,7 @@ export interface Usuario{
     userRole:string;
     userPhone:string;
     userAddress:string;
+    userPhoto:string;
     userWeb:string;
     token:string;
 }

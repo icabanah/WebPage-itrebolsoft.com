@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   {
@@ -8,8 +9,11 @@ const routes: Routes = [
     component:AdminComponent,
     children:[
       {
-        path:'',
-        loadChildren:'./publicaciones/publicaciones.module#PublicacionesModule'
+        path:'', redirectTo: '/admin/usuarios', pathMatch: 'full'
+      },
+      {
+        path:'usuarios',
+        loadChildren: './usuarios/usuarios.module#UsuariosModule'
       }
     ]
   }

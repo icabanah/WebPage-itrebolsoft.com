@@ -6,6 +6,8 @@ import { PublicacionesComponent } from './publicaciones/publicaciones.component'
 import { ProductosComponent } from './productos/productos.component';
 import { RegistrarProyectoComponent } from './proyectos/registrar-proyecto/registrar-proyecto.component';
 import { ActualizarProyectoComponent } from './proyectos/actualizar-proyecto/actualizar-proyecto.component';
+import { NewPublishComponent } from './publicaciones/new-publish/new-publish.component';
+import { EditPublishComponent } from './publicaciones/edit-publish/edit-publish.component';
 
 const routes: Routes = [
   {
@@ -20,16 +22,24 @@ const routes: Routes = [
         component:ProyectosComponent
       },
       {
-        path:'registrar-proyecto',
+        path:'nuevo-proyecto',
         component:RegistrarProyectoComponent
       },
       {
-        path:'actualizar-proyecto',
+        path:'editar-proyecto/:id',
         component:ActualizarProyectoComponent
       },
       {
         path:'publicaciones',
         component:PublicacionesComponent
+      },
+      {
+        path:'nueva-publicacion',
+        component:NewPublishComponent
+      },
+      {
+        path:'publicaciones/:id',
+        component:EditPublishComponent
       },
       {
         path:'productos',

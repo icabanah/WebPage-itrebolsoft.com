@@ -1,40 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActualizarDataService, Publish } from 'src/app/admin/publicaciones/actualizar-data.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Usuario } from 'src/app/modelos/Usuario';
 import { Image } from 'src/app/modelos/Image';
+import { ActualizarDataService } from 'src/app/services/actualizar-data.service';
+import { Publish } from 'src/app/modelos/Publish';
 
 @Component({
   selector: 'its-blog-main',
   templateUrl: './blog-main.component.html',
-  styles: []
+  styleUrls: ['./blog-main.component.scss']
 })
 export class BlogMainComponent implements OnInit {
   Publicaciones:Publish[] = [];
-  Imagenes = [];
-  Nombres = [];
+  Imagenes:Image[];
+  Usuarios:Usuario[] = [];
   constructor(private _router:Router, private _data:ActualizarDataService, private _auth:AuthenticationService) { }
 
   ngOnInit() {
-    this._data.ObtenerPublicaciones().subscribe((publicaciones)=>{
-      this.Publicaciones = publicaciones;
-      this.Publicaciones.forEach((publicacion, index)=>{
-        this._data.ObtenerImagenPorPubl(publicacion.publId).subscribe((imagenes:Image[])=>{
-          if(imagenes.length != 0)
-            this.Imagenes[index] = imagenes[0].imageUrl;
-          else this.Imagenes[index] = null;
-        });
-
-        this._data.ObtenerDetallesUsuario(publicacion.fkTUserUserId).subscribe((autor:Usuario)=>{
-          if(autor){
-            this.Nombres[index] = autor.userFirstName;
-          }
-          else{
-            this.Nombres[index] = null;
-          }
-        });
-      });
+    this._data.ObtenerPublicaciones().then((response)=>{
+      this.Publicaciones = response.Publicaciones;
+      this.Imagenes = response.Imagenes;
+      this.Usuarios = response.Usuarios;
     });
   }
 

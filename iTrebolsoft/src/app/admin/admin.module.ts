@@ -7,8 +7,9 @@ import { HeaderComponent } from './header.component';
 import { ContentComponent } from './content.component';
 
 // modulos
-import { PublicacionesModule } from './publicaciones/publicaciones.module';
 import { AdminRoutingModule } from './admin-routing.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { ProyectosModule } from './proyectos/proyectos.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AdminRoutingModule } from './admin-routing.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    PublicacionesModule
+    UsuariosModule,
+    ProyectosModule
   ]
 })
 export class AdminModule { }

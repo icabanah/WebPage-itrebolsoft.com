@@ -1,3 +1,72 @@
-<p>
-  usuarios works!
-</p>
+<div class="row mt-5 py-3 w-100" >
+  <main role="main" class="col col-12 mw-100" >
+
+    <div class="row mt-3 mw-100" >
+      <div class="col col-6" >
+        <h3>USUARIOS</h3>
+      </div>
+      <div class="col col-6" >
+        <a routerLink="../nuevo-usuario" class="btn btn-block btn-outline-success py-0 ">Registrar Usuario</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-12">
+        <div class="table-responsive">
+          <table class="table table-striped table-sm w-100">
+            <thead>
+              <tr class="text-center">
+                <th>ID</th>
+                <th>IMAGEN</th>
+                <th>DETALLES DE USUARIO</th>
+              </tr>
+            </thead>
+            <tbody class="mw-100" *ngFor="let usuario of Usuarios; let i = index;">
+              <tr>
+                <td>{{i+1}}</td>
+                <td class="w-25"><img class="img-fluid w-100" src='{{usuario.userPhoto}}' alt=""></td>
+                <td>
+                  <div class="row w-100">
+                    <div class="col col-12">
+                      <div class="row">
+                        <div class="col col-6">
+                          <label class="propiedad">Nombre: </label><label class="text-black-50"> {{usuario.userFirstName}} {{usuario.userLastName}}</label>
+                        </div>
+                        <div class="col col-6">
+                          <label class="propiedad">Correo: </label><label class="text-black-50"> {{usuario.userEmail}}</label>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col col-6">
+                          <label class="propiedad">Git: </label><label class="text-black-50"> {{usuario.userGit}}</label>
+                        </div>
+                        <div class="col col-6">
+                          <label class="propiedad">Rol: </label><label class="text-black-50"> {{usuario.userRole}}</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col col-4 mt-2">
+                          <a class="btn btn-block btn-outline-dark py-0" [routerLink]="">Proyectos</a>
+                        </div>
+                        <div class="col col-4 mt-2">
+                          <a class="btn btn-block btn-outline-dark py-0" [routerLink]="">Publicaciones</a>
+                        </div>
+                        <div class="col col-4 mt-2">
+                          <a class="btn btn-block btn-outline-dark py-0" [routerLink]="">Productos</a>
+                        </div>
+                        <div class="col col-12 mt-2">
+                          <a class="btn btn-block btn-outline-dark py-0" [routerLink]="">Editar</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
